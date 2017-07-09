@@ -38,6 +38,7 @@ class Hangman
 			system 'clear' 
 			message
 			puts "chances left: #{8 - @turns_left}"
+			puts "Used letters: #{@used_letters}"
 			guess = enter_guess 
 
 
@@ -119,6 +120,7 @@ class Hangman
 		valid = false 
 		while valid == false 
 			guess = @player.letter_choice
+			@used_letters.push(guess)
 			if ("a".."z").to_a.include?(guess) && guess.size == 1
 				return guess 
 				valid = true 
